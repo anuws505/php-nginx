@@ -1,0 +1,50 @@
+# debian:bullseye
+docker container rm -f php-nginx-run
+docker build -t php-nginx:v1.0 . --no-cache
+docker run -d --name php-nginx-run -p 80:80 -p 443:443 php-nginx:v1.0
+
+# access php-nginx-run
+docker exec -it php-nginx-run /bin/bash
+
+# or docker run
+docker run -d --name php-nginx-run \
+-v certs:/opt/certs \
+-v code:/var/www/html \
+-p 80:80 -p 443:443 php-nginx:v1.0
+
+# find . -type d -exec chmod 755 {} \;
+# find . -type f -exec chmod 644 {} \;
+
+
+# mysql run
+docker run -d --name mysql-app-run \
+-v /Users/anuws505/php-nginx/mysql:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=password \
+-e MYSQL_DATABASE=magento \
+-e MYSQL_USER=magento \
+-e MYSQL_PASSWORD=magento \
+-p 3306:3306 mysql:8
+
+# access mysql-app-run
+docker exec -it mysql-app-run /bin/bash
+
+
+# docker cp certs/. php-nginx-run:/opt/certs/.
+# docker cp etc_nginx_sites-available_default deb-app-run:/etc/nginx/sites-available/default
+# docker cp code/. php-nginx-run:/var/www/html/.
+
+
+
+
+# Get ready to experience Open-Source eCommerce Evolved.
+# Before you continue to your store, please make a note of your encryption key (OpenMage uses it to encrypt passwords, credit cards and more).
+
+# >> magento-lts-1.9.4.x-install-on-php-nginx-debian:bullseye
+
+# (Make sure you keep it in a safe place.)
+
+
+# backend: https://localhost/index.php/admin/
+# u: admin
+# p: p#ssw0rd12345!
+# frontend: https://127.0.0.1/
