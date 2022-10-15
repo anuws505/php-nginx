@@ -1,0 +1,11 @@
+# install php8.1
+# https://computingforgeeks.com/how-to-install-php-on-debian-linux/
+
+# build php8.1 image
+# Dockerfile-php81
+
+# modify nginx default
+# location ~ \.php$ {
+#     include snippets/fastcgi-php.conf;
+# >>  fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+# }

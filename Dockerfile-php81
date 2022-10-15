@@ -1,0 +1,39 @@
+# initial image
+FROM debian:bullseye
+
+# install nginx
+RUN apt-get update && \
+    apt-get install -y nginx
+
+RUN apt-get install -y wget lsb-release ca-certificates apt-transport-https software-properties-common gnupg2
+RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+RUN wget -qO - https://packages.sury.org/php/apt.gpg | apt-key add -
+RUN apt-get update
+
+# install php-fpm
+RUN apt-get install -y php8.1 php8.1-common php-pear php8.1-mbstring php8.1-fpm
+RUN apt-get install -y php8.1-gd php8.1-intl php8.1-soap php8.1-curl php8.1-mysql
+
+LABEL maintainer="anuws505"
+LABEL version="1.0"
+LABEL description="A PHP and Nginx on Debain 11"
+
+RUN mkdir /opt/certs
+COPY certs/. /opt/certs/.
+COPY etc_nginx_sites-available_default /etc/nginx/sites-available/default
+COPY code/. /var/www/html/.
+RUN chown -R www-data:www-data /var/www/html
+# -- or when default root dir --
+# RUN chmod 777 /var/www/html/var
+# RUN chmod 777 /var/www/html/app/etc
+# RUN chmod 777 /var/www/html/media
+# RUN chmod 777 /var/www/html/media/customer
+# RUN chmod 777 /var/www/html/media/dhl
+# RUN chmod 777 /var/www/html/media/dhl/logo.jpg
+# RUN chmod 777 /var/www/html/media/downloadable
+
+EXPOSE 80/tcp
+EXPOSE 443/tcp
+
+# CMD ["/bin/bash", "-c", "nginx -g 'daemon off;'"]
+CMD ["/bin/bash", "-c", "service php8.1-fpm start && nginx -g 'daemon off;' && nginx -s reload"]
