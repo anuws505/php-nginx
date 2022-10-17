@@ -15,6 +15,9 @@ docker run -d --name php-nginx-run \
 # find . -type d -exec chmod 755 {} \;
 # find . -type f -exec chmod 644 {} \;
 
+# global install composer debian 11
+# curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 
 # mysql run
 docker run -d --name mysql-app-run \
