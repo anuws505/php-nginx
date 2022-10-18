@@ -43,7 +43,6 @@ docker exec -it mysql-app-run /bin/bash
 # Before you continue to your store, please make a note of your encryption key (OpenMage uses it to encrypt passwords, credit cards and more).
 
 # >> magento-lts-1.9.4.x-install-on-php-nginx-debian:bullseye
-# >> magento-lts-20-install-on-php74-nginx-debian:bullseye
 
 # (Make sure you keep it in a safe place.)
 

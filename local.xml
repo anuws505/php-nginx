@@ -8,24 +8,24 @@
  * This source file is subject to the Academic Free License (AFL 3.0)
  * that is bundled with this package in the file LICENSE_AFL.txt.
  * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
+ * https://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
  * to license@magento.com so we can send you a copy immediately.
  *
  * @category    Mage
  * @package     Mage_Core
- * @copyright   Copyright (c) 2006-2020 Magento, Inc. (http://www.magento.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright   Copyright (c) 2006-2020 Magento, Inc. (https://www.magento.com)
+ * @license     https://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 -->
 <config>
     <global>
         <install>
-            <date><![CDATA[Mon, 17 Oct 2022 11:34:10 +0000]]></date>
+            <date><![CDATA[Tue, 18 Oct 2022 06:22:23 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[magento-lts-20-install-on-php74-nginx-debian:bullseye]]></key>
+            <key><![CDATA[magento-lts-1.9.4.x-install-on-php-nginx-debian:bullseye]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
