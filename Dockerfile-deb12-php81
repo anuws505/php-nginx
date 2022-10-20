@@ -1,17 +1,17 @@
 # initialize image
-FROM debian:bullseye
+FROM debian:bookworm
 
 # install nginx
 RUN apt-get update && \
     apt-get install -y nginx
 
 # install php-fpm
-RUN apt-get install -y php7.4 php7.4-common php-pear php7.4-mbstring php7.4-fpm
-RUN apt-get install -y php7.4-gd php7.4-intl php7.4-soap php7.4-curl php7.4-mysql
+RUN apt-get install -y php8.1 php8.1-common php-pear php8.1-mbstring php8.1-fpm
+RUN apt-get install -y php8.1-gd php8.1-intl php8.1-soap php8.1-curl php8.1-mysql
 
 LABEL maintainer="anuws505"
 LABEL version="1.0"
-LABEL description="A PHP and Nginx on Debain 11"
+LABEL description="A PHP and Nginx on Debain 12"
 
 RUN mkdir /opt/certs
 COPY certs/. /opt/certs/.
@@ -31,4 +31,4 @@ EXPOSE 80/tcp
 EXPOSE 443/tcp
 
 # CMD ["/bin/bash", "-c", "nginx -g 'daemon off;'"]
-CMD ["/bin/bash", "-c", "service php7.4-fpm start && nginx -g 'daemon off;' && nginx -s reload"]
+CMD ["/bin/bash", "-c", "service php8.1-fpm start && nginx -g 'daemon off;' && nginx -s reload"]
