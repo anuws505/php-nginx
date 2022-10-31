@@ -16,7 +16,7 @@ LABEL description="A PHP and Nginx on Debain 11"
 RUN mkdir /opt/certs
 COPY certs/. /opt/certs/.
 COPY etc_nginx_sites-available_default /etc/nginx/sites-available/default
-COPY code/. /var/www/html/.
+COPY www/. /var/www/html/.
 RUN chown -R www-data:www-data /var/www/html
 # -- or when default root dir --
 # RUN chmod 777 /var/www/html/var

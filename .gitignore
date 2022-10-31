@@ -1,7 +1,6 @@
 # ignore local env
 .DS_Store
-/.DS_Store
-code
+www
 mysql
-onlinestore
-integration
+code
+mysql56

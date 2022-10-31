@@ -9,7 +9,7 @@ docker exec -it php-nginx-run /bin/bash
 # or docker run
 docker run -d --name php-nginx-run \
 -v certs:/opt/certs \
--v code:/var/www/html \
+-v www:/var/www/html \
 -p 80:80 -p 443:443 php-nginx:v1.0
 
 # find . -type d -exec chmod 755 {} \;
@@ -39,10 +39,10 @@ docker run -d --name onlinestore-run -v "C:\php-nginx\code":/var/www/html -p 80:
 docker exec -it onlinestore-run /bin/bash
 
 # mysql run on windows
-docker run -d --name mysql-app-run -v "C:\php-nginx\mysql":/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 mysql:8
+docker run -d --name mysql56-run -v "C:\php-nginx\mysql56":/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 mysql:5.6
 
 # access mysql container
-docker exec -it mysql-app-run /bin/bash
+docker exec -it mysql56-run /bin/bash
 
 
 
