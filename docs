@@ -31,10 +31,24 @@ docker run -d --name mysql-app-run \
 # access mysql-app-run
 docker exec -it mysql-app-run /bin/bash
 
+
+# docker run on windows
+docker run -d --name onlinestore-run -v "C:\php-nginx\code":/var/www/html -p 80:80 -p 443:443 php-nginx:v1.0
+
+# access onlinestore container
+docker exec -it onlinestore-run /bin/bash
+
+# mysql run on windows
+docker run -d --name mysql-app-run -v "C:\php-nginx\mysql":/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password -p 3306:3306 mysql:8
+
+# access mysql container
+docker exec -it mysql-app-run /bin/bash
+
+
+
 # docker cp certs/. php-nginx-run:/opt/certs/.
 # docker cp etc_nginx_sites-available_default php-nginx-run:/etc/nginx/sites-available/default
 # docker cp code/. php-nginx-run:/var/www/html/.
-
 
 
 # Get ready to experience Open-Source eCommerce Evolved.
