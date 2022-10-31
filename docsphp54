@@ -1,0 +1,30 @@
+# debian:wheezy
+docker container rm -f onlinestore-run
+docker build -t onlinestore:v1.0 . --no-cache
+docker run -d --name onlinestore-run -p 80:80 -p 443:443 onlinestore:v1.0
+
+# access onlinestore-run
+docker exec -it onlinestore-run /bin/bash
+
+# or docker run
+docker run -d --name onlinestore-run \
+# -v certs:/opt/certs \
+-v code:/var/www/html \
+-p 80:80 -p 443:443 onlinestore:v1.0
+
+# find . -type d -exec chmod 755 {} \;
+# find . -type f -exec chmod 644 {} \;
+
+# docker cp certs/. php-nginx-run:/opt/certs/.
+# docker cp etc_nginx_sites-available_default php-nginx-run:/etc/nginx/sites-available/default
+# docker cp code/. php-nginx-run:/var/www/html/.
+
+
+# mysql run
+docker run -d --name mysql56-run \
+-v /Users/anuws505/php-nginx/mysql56:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=password \
+-p 3306:3306 mysql:5.6
+
+# access mysql-app-run
+docker exec -it mysql56-run /bin/bash

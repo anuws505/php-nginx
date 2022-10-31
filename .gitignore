@@ -1,0 +1,7 @@
+# ignore local env
+.DS_Store
+/.DS_Store
+code
+mysql
+onlinestore
+integration

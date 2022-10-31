@@ -4,7 +4,7 @@ server {
     server_name localhost;
 
     root /var/www/html;
-    index index.php index.html index.htm index.nginx-debian.html;
+    index index.php index.html;
 
     gzip off;
 
@@ -29,7 +29,7 @@ server {
     server_name localhost;
 
     root /var/www/html;
-    index index.php index.html index.htm index.nginx-debian.html;
+    index index.php index.html;
 
     gzip off;
 

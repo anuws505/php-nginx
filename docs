@@ -31,11 +31,9 @@ docker run -d --name mysql-app-run \
 # access mysql-app-run
 docker exec -it mysql-app-run /bin/bash
 
-
 # docker cp certs/. php-nginx-run:/opt/certs/.
 # docker cp etc_nginx_sites-available_default php-nginx-run:/etc/nginx/sites-available/default
 # docker cp code/. php-nginx-run:/var/www/html/.
-
 
 
 
